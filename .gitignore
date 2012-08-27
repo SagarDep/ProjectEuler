@@ -1,0 +1,14 @@
+#Gitignore file
+bin/
+*.class
+.project
+nbproject/
+build.xml
+manifest.mf
+/build/
+/dist/
+*.rar
+*.srt
+*.nfo
+NewFolder/
+Episode/
