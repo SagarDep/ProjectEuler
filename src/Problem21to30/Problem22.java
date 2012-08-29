@@ -12,7 +12,7 @@ public class Problem22 {
 	
 	public Problem22(String[] list) {
 		this.list = list;
-		System.out.println(solve());
+		System.out.println(solve() + "");
 	}
 	
 	
