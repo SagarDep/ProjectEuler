@@ -41,7 +41,6 @@ public class Problem26 {
 				counter++;
 			}
 		}
-		
 		return counter;
 	}
 
