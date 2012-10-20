@@ -1,9 +1,12 @@
-package Library;
+package library;
 
 import java.util.ArrayList;
 
 public class Divisors {
 
+	private static int GCD(int a, int b) {
+		return (b == 0 ? a : GCD(b, a%b));
+	}
 	
 	public static ArrayList<Integer> listOfDivisors(int n, boolean includeN) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
