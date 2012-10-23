@@ -8,7 +8,7 @@ public class Problem15 {
 	
 	
 	private void solve() {
-		long[][] pascal = new long[21][21];
+		long[][] pascal = new long[3][3];
 		
 		for (int i = 0; i < pascal.length; i++) {
 			pascal[i][0] = 1;
@@ -33,7 +33,7 @@ public class Problem15 {
 			System.out.println();
 		}
 		
-		System.out.println(pascal[20][20]);
+		System.out.println(pascal[2][2]);
 	}
 	
 
