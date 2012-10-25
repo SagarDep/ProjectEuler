@@ -8,7 +8,7 @@ import java.io.IOException;
 public class FindGreatestProduct {
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader(new File("1000DigitNumber")));
+		BufferedReader br = new BufferedReader(new FileReader(new File("data/1000DigitNumber")));
 		int highest = 0;
 		int prod = 0;
 		String line = br.readLine();

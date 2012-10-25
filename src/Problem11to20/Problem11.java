@@ -69,7 +69,7 @@ public class Problem11 {
 		BufferedReader br = null;
 		
 		try {
-			br = new BufferedReader(new FileReader(new File("20x20DigitMatrix")));
+			br = new BufferedReader(new FileReader(new File("data/20x20DigitMatrix")));
 		} catch (FileNotFoundException e) { e.printStackTrace();}
 		
 		for (int i = 0; i < 20; i++) {

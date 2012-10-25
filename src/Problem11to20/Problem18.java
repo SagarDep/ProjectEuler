@@ -35,7 +35,7 @@ public class Problem18 {
 		BufferedReader br = null;
 		
 		try {
-			br = new BufferedReader(new FileReader(new File("Triangle")));
+			br = new BufferedReader(new FileReader(new File("data/Triangle")));
 		} catch (FileNotFoundException e) { e.printStackTrace();}
 		
 		String line;

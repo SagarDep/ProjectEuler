@@ -12,7 +12,7 @@ public class Problem22 {
 	
 	public Problem22(String[] list) {
 		this.list = list;
-		System.out.println(solve());
+		System.out.println("answer: " + solve());
 	}
 	
 	
@@ -25,7 +25,7 @@ public class Problem22 {
 		for (int i = 0; i < list.length; i++) {
 			line = list[i];
 			for (int j = 0; j < line.length(); j++) {
-				sum += (line.charAt(i) - 64) * (i +1);
+				sum += (line.charAt(j) - 64) * (i + 1);
 			}
 		}
 		
@@ -38,7 +38,7 @@ public class Problem22 {
 		String line = "";
 		
 		try {
-			br = new BufferedReader(new FileReader(new File("names.txt")));
+			br = new BufferedReader(new FileReader(new File("data/Names")));
 			line = br.readLine();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -49,8 +49,6 @@ public class Problem22 {
 		line = line.replaceAll("\"", "");
 		String[] split = line.split(",");
 		new Problem22(split);
-		
-		
 	}
 
 }

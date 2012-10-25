@@ -12,7 +12,7 @@ public class Problem13 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(new File("100FiftyDigitNumbers")));
+			br = new BufferedReader(new FileReader(new File("data/100FiftyDigitNumbers")));
 		} catch (FileNotFoundException e) {	e.printStackTrace();}
 		
 		BigInteger[] numbers = new BigInteger[100];
