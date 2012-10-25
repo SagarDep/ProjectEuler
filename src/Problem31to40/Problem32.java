@@ -1,4 +1,4 @@
-package Problem31to40;
+package problem31to40;
 
 import java.util.HashMap;
 

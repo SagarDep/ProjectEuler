@@ -1,4 +1,4 @@
-package Problem21to30;
+package problem21to30;
 
 /**
  * Project Euler Problem 30

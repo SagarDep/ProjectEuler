@@ -1,4 +1,4 @@
-package Problem11to20;
+package problem11to20;
 
 public class Problem14 {
 	private final int N = 1000000;

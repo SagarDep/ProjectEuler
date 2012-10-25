@@ -1,4 +1,4 @@
-package Problem21to30;
+package problem21to30;
 
 
 public class Problem21 {

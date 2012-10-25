@@ -1,4 +1,4 @@
-package Problem1to10;
+package problem01to10;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

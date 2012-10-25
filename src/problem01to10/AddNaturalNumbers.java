@@ -1,4 +1,4 @@
-package Problem1to10;
+package problem01to10;
 
 public class AddNaturalNumbers {
 	public static void main(String[] args) {

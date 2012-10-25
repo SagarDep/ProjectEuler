@@ -1,4 +1,4 @@
-package Problem11to20;
+package problem11to20;
 
 public class Problem17 {
 	public static final String[] NUMBERS = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
