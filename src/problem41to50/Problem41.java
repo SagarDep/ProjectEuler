@@ -1,8 +1,7 @@
 package problem41to50;
 
-import java.util.ArrayList;
-
 import library.Primes;
+import library.Pandigital;
 
 public class Problem41 {
 
@@ -12,11 +11,21 @@ public class Problem41 {
 
 	private static void solve() {
 		long before = System.currentTimeMillis();
-		int[] p = Primes.arrayOfPrimes(1000000000);
+		
+		int[] primes = Primes.arrayOfPrimes(1000000000);
+		
+		System.out.println("Array of Primes calculated...");
+		
+		int max = -1;
+		for (int i = 4; i < primes.length; i++) {
+			String s = "" + primes[i];
+			if(Pandigital.isPanDigitalN("" + s, s.length()))
+				if(primes[i] > max)
+					max = primes[i];
+		}
+		
 		long after = System.currentTimeMillis();
 		
-		System.out.println((after-before) / (double) 1000 + "s");
+		System.out.println("answer: " + max + " " + (after-before) / (double) 1000 + "s");
 	}
-	
-	
 }
