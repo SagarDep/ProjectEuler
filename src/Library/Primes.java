@@ -2,10 +2,11 @@ package library;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Primes {
 
-	private static boolean[] boolArrayOfPrimes(int n) {
+	public static boolean[] boolArrayOfPrimes(int n) {
 			boolean[] array = new boolean[n];
 			Arrays.fill(array, true);
 			
@@ -66,5 +67,20 @@ public class Primes {
 		}
 		
 		return primes;
+	}
+	
+	public static HashSet<Integer> primeFactorization(int number) {
+		int n = number;
+		HashSet<Integer> factors = new HashSet<Integer>();
+		for (int i = 2; i < n/i; i++) {
+			while(n % i == 0) {
+				factors.add(i);
+				n /= i;
+			}
+		}
+		if(n > 1)
+			factors.add(n);
+		
+		return factors;
 	}
 }
