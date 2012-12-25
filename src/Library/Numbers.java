@@ -29,17 +29,17 @@ public class Numbers {
 		return set.size() == n;
 	}
 	
-	private static boolean isPentagonal(int n) {
+	public static boolean isPentagonal(int n) {
 	    double value = (Math.sqrt(1 + 24 * n) + 1.0) / 6.0;
 	    return value == ((int) value);
 	}
 	
-	private static boolean isHexagonal(int n) {
+	public static boolean isHexagonal(int n) {
 		double value = (Math.sqrt(1.0 + 8 * n) + 1.0) / 4.0;
 	    return value == ((int) value);
 	}
 	
-	private static boolean isTriangular(int n) {
+	public static boolean isTriangular(int n) {
 		double value = (Math.sqrt(1 + 8 * n) - 1.0) / 2.0;
 	    return value == ((int) value);
 	}

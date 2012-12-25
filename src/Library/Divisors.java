@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Divisors {
 
-	private static int GCD(int a, int b) {
+	public static int GCD(int a, int b) {
 		return (b == 0 ? a : GCD(b, a%b));
 	}
 	

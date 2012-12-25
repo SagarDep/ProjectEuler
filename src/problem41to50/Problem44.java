@@ -1,7 +1,5 @@
 package problem41to50;
 
-import java.util.HashMap;
-
 public class Problem44 {
 
 	public static void main(String[] args) {
@@ -9,34 +7,34 @@ public class Problem44 {
 		solve2();
 	}
 
-	private static void solve() {
-		int[] numbers = generatePentagonalNumbers(10000);
-		HashMap<Integer, String> set = new HashMap<Integer, String>();
-		for (int i : numbers) {
-			if(i != 0)
-				set.put(i, null);
-		}
-		int min = Integer.MAX_VALUE;
-		for (int i = 1; i < numbers.length; i++) {
-			int a = numbers[i];
-			for (int j = 1; j < numbers.length; j++) {
-				int b = numbers[j];
-				if(set.containsKey(a-b))
-					if(set.containsKey(a+b))
-						if(Math.abs(b-a) < min)
-							min = Math.abs(b-a);
-			}
-		}
-		System.out.println("D = " + min);
-	}
+//	private static void solve() {
+//		int[] numbers = generatePentagonalNumbers(10000);
+//		HashMap<Integer, String> set = new HashMap<Integer, String>();
+//		for (int i : numbers) {
+//			if(i != 0)
+//				set.put(i, null);
+//		}
+//		int min = Integer.MAX_VALUE;
+//		for (int i = 1; i < numbers.length; i++) {
+//			int a = numbers[i];
+//			for (int j = 1; j < numbers.length; j++) {
+//				int b = numbers[j];
+//				if(set.containsKey(a-b))
+//					if(set.containsKey(a+b))
+//						if(Math.abs(b-a) < min)
+//							min = Math.abs(b-a);
+//			}
+//		}
+//		System.out.println("D = " + min);
+//	}
 
-	private static int[] generatePentagonalNumbers(int n) {
-		int[] array = new int[n];
-		for (int i = 1; i < array.length; i++) {
-			array[i] = (i * (3*i - 1)) / 2;
-		}
-		return array;
-	}
+//	private static int[] generatePentagonalNumbers(int n) {
+//		int[] array = new int[n];
+//		for (int i = 1; i < array.length; i++) {
+//			array[i] = (i * (3*i - 1)) / 2;
+//		}
+//		return array;
+//	}
 	
 	private static void solve2() {
 		int d = Integer.MAX_VALUE;
