@@ -19,6 +19,7 @@ public class Problem42 {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(new File("data/Words")));
 			line = br.readLine();
+			br.close();
 		} catch (FileNotFoundException e) {	e.printStackTrace();
 		} catch (IOException e) {			e.printStackTrace();}
 		

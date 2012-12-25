@@ -11,31 +11,23 @@ public class Problem47 {
 	}
 
 	private static void solve() {
-		boolean done = false;
-		int i = 646;
-		int last = -1;
-		int counter = 0;
-		while(!done) {
+		int i = 646, last = -1, counter = 0;
+		while(true) {
 
-			if(counter == 4) {
-				done = true;
+			if(counter == 4)
 				break;
-			}
 
 			i++;
 			
 			HashSet<Integer> set = Primes.primeFactorization(i);
-			if(set.size() == 4) {
-				if(last == i - 1) {
+			if(set.size() == 4)
+				if(last == i - 1)
 					counter++;
-				}
-			} else
+			else
 				counter = 0;
 			
 			last = i;
 		}
-		
 		System.out.println("answer: " + (i - 3));
 	}
-
 }
