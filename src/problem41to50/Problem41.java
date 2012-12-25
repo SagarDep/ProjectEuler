@@ -1,7 +1,7 @@
 package problem41to50;
 
 import library.Primes;
-import library.Pandigital;
+import library.Numbers;
 
 public class Problem41 {
 
@@ -19,7 +19,7 @@ public class Problem41 {
 		int max = -1;
 		for (int i = 4; i < primes.length; i++) {
 			String s = "" + primes[i];
-			if(Pandigital.isPanDigitalN("" + s, s.length()))
+			if(Numbers.isPanDigitalN("" + s, s.length()))
 				if(primes[i] > max)
 					max = primes[i];
 		}
