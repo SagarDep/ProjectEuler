@@ -47,7 +47,7 @@ public class Primes {
 	}
 	
 	
-	public static int[] arrayOfPrimes(int n) {
+	public static int[] arrayOfPrimesBellow(int n) {
 		if(n > Integer.MAX_VALUE) return null;
 		
 		boolean[] array = boolArrayOfPrimes(n);
