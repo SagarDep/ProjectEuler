@@ -2,7 +2,7 @@ package problem41to50;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Set;
 
 import library.Permutations;
 import library.Primes;
@@ -29,7 +29,7 @@ public class Problem49 {
 				break;
 			
 			if(set.containsKey(a) && set.containsKey(b)) {
-				HashSet<String> perm = Permutations.permutation("" + i);
+				Set<String> perm = Permutations.permutations("" + i);
 				if(perm.contains("" + a) && perm.contains("" + b))
 					System.out.println("answer: " + i + a + b);
 			}

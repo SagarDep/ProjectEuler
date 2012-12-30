@@ -1,10 +1,31 @@
 package library;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Permutations {
 	
-	public  static HashSet<String> permutation(String str) { 
+	public static boolean isPermutation(int m, int n) {
+		int[] array = new int[10];
+		
+		int temp = n;
+		while(temp > 0) {
+			array[temp % 10]++;
+			temp /= 10;
+		}
+		
+		temp = m;
+		while(temp > 0) {
+			array[temp % 10]--;
+			temp /= 10;
+		}
+		
+		for (int i = 0; i < 10; i++)
+			if(array[i] != 0) return false;
+		return true;
+	}
+	
+	public static Set<String> permutations(String str) { 
 	    HashSet<String> list = new HashSet<String>();
 		permutation("", str, list);
 		return list;
@@ -17,7 +38,6 @@ public class Permutations {
 	        for (int i = 0; i < n; i++)
 	           permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n),list);
 	    }
-
 	}
 	
     // print all subsets of the characters in s
