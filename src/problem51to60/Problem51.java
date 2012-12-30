@@ -1,10 +1,13 @@
 package problem51to60;
 
-import org.apache.commons.lang3.StringUtils;
+import java.util.Set;
 
 import library.Primes;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Problem51 {
+	private static Set<Integer> set;
 
 	public static void main(String[] args) {
 		solve();
@@ -12,16 +15,19 @@ public class Problem51 {
 
 	private static void solve() {
 		int[] primes = Primes.arrayOfPrimesBetween(100000, 999999);
+		set = Primes.setOfPrimesBelow(1000000);
 		
+		String s;
+		String last;
 		for (int i : primes) {
-			String s = "" + i;
-			String last = s.substring(5, 7);
+			s = "" + i;
+			last = s.substring(5, 6);
 			
-			if(StringUtils.countMatches(s, "0") == 3 && hasEightPrimeFamily(s, 0))
+			if(StringUtils.countMatches(s, "0") == 3 && hasEightPrimeFamily(s, "0"))
 				finish(s);
-			if(StringUtils.countMatches(s, "1") == 3 && !last.equals("1") && hasEightPrimeFamily(s, 1))
+			if(StringUtils.countMatches(s, "1") == 3 && !last.equals("1") && hasEightPrimeFamily(s, "1"))
 				finish(s);
-			if(StringUtils.countMatches(s, "2") == 3 && hasEightPrimeFamily(s, 2))
+			if(StringUtils.countMatches(s, "2") == 3 && hasEightPrimeFamily(s, "2"))
 				finish(s);
 		}
 	}
@@ -31,10 +37,16 @@ public class Problem51 {
 		System.exit(0);
 	}
 
-	private static boolean hasEightPrimeFamily(String s, int digit) {
-		
-		
-		return false;
+	private static boolean hasEightPrimeFamily(String s, String digit) {
+		String temp;
+		int number = Integer.parseInt(s);
+		int counter = 0;
+		for (int i = 0; i < 10; i++) {
+			temp = s.replace(digit, "" + i);
+			int n = Integer.parseInt(temp);
+			if(set.contains(n) && n >= number)
+				counter++;
+		}
+		return counter == 8;
 	}
-
 }

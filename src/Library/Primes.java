@@ -3,6 +3,7 @@ package library;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Primes {
 
@@ -23,6 +24,13 @@ public class Primes {
 			return array;
 	}
 
+	public static Set<Integer> setOfPrimesBelow(int n) {
+		int[] array = arrayOfPrimesBelow(n);
+		HashSet<Integer> set = new HashSet<Integer>();
+		for (Integer i : array)
+			set.add(i);
+		return set;
+	}
 	
 	public static long sumOfPrimesUpTo(int n) {
 		if(n > Integer.MAX_VALUE) return -1;
