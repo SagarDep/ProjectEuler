@@ -8,7 +8,7 @@ import library.Primes;
 public class Problem46 {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> primes = Primes.listOfPrimes(100000);
+		ArrayList<Integer> primes = Primes.listOfPrimesBelow(100000);
 		HashMap<Integer, String> set = new HashMap<Integer, String>();
 		
 		for (Integer i : primes) {

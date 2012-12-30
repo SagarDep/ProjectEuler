@@ -12,7 +12,7 @@ public class Problem41 {
 	private static void solve() {
 		long before = System.currentTimeMillis();
 		
-		int[] primes = Primes.arrayOfPrimesBellow(1000000000);
+		int[] primes = Primes.arrayOfPrimesBelow(1000000000);
 		
 		System.out.println("Array of Primes calculated...");
 		

@@ -12,7 +12,7 @@ public class Problem37 {
 	}
 
 	private static void solve() {
-		ArrayList<Integer> primes = Primes.listOfPrimes(1000000);	// Returns a list of primes < 1,000,000
+		ArrayList<Integer> primes = Primes.listOfPrimesBelow(1000000);	// Returns a list of primes < 1,000,000
 		SET = new HashSet<Integer>(primes);
 		long before = System.currentTimeMillis();
 		int counter = 0;

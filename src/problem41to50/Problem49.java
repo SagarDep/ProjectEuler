@@ -14,7 +14,7 @@ public class Problem49 {
 	}
 
 	private static void solve() {
-		ArrayList<Integer> primes = Primes.listOfPrimes(10000);
+		ArrayList<Integer> primes = Primes.listOfPrimesBelow(10000);
 		HashMap<Integer,String> set = new HashMap<Integer, String>();
 		for (Integer i : primes) {
 			if(i > 999 && i < 10000)

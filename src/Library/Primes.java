@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class Primes {
 
-	public static boolean[] boolArrayOfPrimes(int n) {
+	public static boolean[] boolArrayOfPrimesBelow(int n) {
 			boolean[] array = new boolean[n];
 			Arrays.fill(array, true);
 			
@@ -26,7 +26,7 @@ public class Primes {
 	
 	public static long sumOfPrimesUpTo(int n) {
 		if(n > Integer.MAX_VALUE) return -1;
-		boolean[] array = boolArrayOfPrimes(n);
+		boolean[] array = boolArrayOfPrimesBelow(n);
 		long sum = 0;
 		
 		for (int i = 0; i < array.length; i++)
@@ -36,9 +36,9 @@ public class Primes {
 	}
 	
 
-	public static ArrayList<Integer> listOfPrimes(int n) {
+	public static ArrayList<Integer> listOfPrimesBelow(int n) {
 		if(n > Integer.MAX_VALUE) return null;
-		boolean[] array = boolArrayOfPrimes(n);
+		boolean[] array = boolArrayOfPrimesBelow(n);
 		
 		ArrayList<Integer> primes = new ArrayList<Integer>();
 		for (int i = 2; i < array.length; i++)
@@ -47,10 +47,10 @@ public class Primes {
 	}
 	
 	
-	public static int[] arrayOfPrimesBellow(int n) {
+	public static int[] arrayOfPrimesBelow(int n) {
 		if(n > Integer.MAX_VALUE) return null;
 		
-		boolean[] array = boolArrayOfPrimes(n);
+		boolean[] array = boolArrayOfPrimesBelow(n);
 		
 		int counter = 0;
 		for (boolean b : array)
@@ -69,7 +69,29 @@ public class Primes {
 		return primes;
 	}
 	
-	public static HashSet<Integer> primeFactorization(int number) {
+	public static int[] arrayOfPrimesBetween(int first, int last) {
+		if(last > Integer.MAX_VALUE) return null;
+		
+		boolean[] array = boolArrayOfPrimesBelow(last+1); // +1 to include last in array
+		
+		int counter = 0;
+		for (int i = 0; i < array.length; i++)
+			if(array[i] && i >= first)	counter++;
+			
+		int[] primes = new int[counter];
+		counter = 0;
+
+		for (int i = first; i < array.length; i++) {
+			if(array[i]) {
+				primes[counter] = i;
+				counter++;
+			}
+		}
+		
+		return primes;
+	}
+	
+	public static HashSet<Integer> primeFactors(int number) {
 		int n = number;
 		HashSet<Integer> factors = new HashSet<Integer>();
 		for (int i = 2; i < n/i; i++) {
@@ -82,5 +104,13 @@ public class Primes {
 			factors.add(n);
 		
 		return factors;
+	}
+	
+	public static boolean isPrime(int n) {
+	    for(int i=2;2*i<n;i++) {
+	        if(n%i==0)
+	            return false;
+	    }
+	    return true;
 	}
 }

@@ -13,7 +13,7 @@ public class Problem50 {
 
 	private static void solve() {
 		long before = System.currentTimeMillis();
-		int[] array = Primes.arrayOfPrimesBellow(N);
+		int[] array = Primes.arrayOfPrimesBelow(N);
 		HashMap<Integer, String> primes = new HashMap<Integer, String>();
 		for (int i : array)
 			primes.put(i, null);

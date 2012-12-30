@@ -19,7 +19,7 @@ public class Problem47 {
 
 			i++;
 			
-			HashSet<Integer> set = Primes.primeFactorization(i);
+			HashSet<Integer> set = Primes.primeFactors(i);
 			if(set.size() == 4)
 				if(last == i - 1)
 					counter++;
