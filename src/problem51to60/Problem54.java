@@ -41,8 +41,8 @@ public class Problem54 {
 		String[] split = null;
 		int counter = 0;
 		for (int i = 0; i < 1; i++) {
-			int[] playerA = new int[5];
-			int[] playerB = new int[5];
+			Card[] handA = new Card[5];
+			Card[] handB = new Card[5];
 			boolean flushableA = true;
 			boolean flushableB = true;
 			
@@ -50,30 +50,37 @@ public class Problem54 {
 				split = br.readLine().split(" ");
 			} catch (IOException e) {	e.printStackTrace();	}
 			
-			String color = split[0].substring(1);
-			playerA[0] = parseValue(split[0].substring(0, 1));
+			String suit = split[0].substring(1);
+			int val = parseValue(split[0].substring(0, 1));
+			handA[0] = new Card(val, suit);
 			for (int j = 1; j < 5; j++) {
-				playerA[j] = parseValue(split[j].substring(0, 1));
-				if(!color.equals(split[j].substring(1)))
+				suit = split[j].substring(1);
+				val = parseValue(split[j].substring(0, 1));
+				handA[j] = new Card(val, suit);
+				if(!suit.equals(suit))
 					flushableA = false;
 			}
 			
-			playerB[0] = parseValue(split[5].substring(0, 1));
+			suit = split[5].substring(1);
+			val = parseValue(split[5].substring(0, 1));
+			handB[5] = new Card(val, suit);
 			for (int j = 1; j < 5; j++) {
-				playerB[j] = parseValue(split[j+5].substring(0, 1));
-				if(!color.equals(split[j+5].substring(1)))
+				suit = split[j].substring(1);
+				val = parseValue(split[j].substring(0, 1));
+				handB[j] = new Card(val, suit);
+				if(!suit.equals(suit))
 					flushableB = false;
 			}
 			
-			Arrays.sort(playerA);
-			Arrays.sort(playerB);
+			Arrays.sort(handA);
+			Arrays.sort(handB);
 			
-			counter += aIsWinner(playerA, flushableA, playerB, flushableB);
+//			counter += aIsWinner(playerA, flushableA, playerB, flushableB);
 		}
 		
 		System.out.println("answer: " + counter);
 	}
-	
+
 	private static int parseValue(String s) {
 		int value = -1;
 		try {
@@ -88,82 +95,19 @@ public class Problem54 {
 		}
 		return value;
 	}
-
-	private static int aIsWinner(int[] playerA, boolean flushableA, int[] playerB, boolean flushableB) {
-		int scoreA = score(playerA, flushableA);
-		int scoreB = score(playerB, flushableB);
-		
-		if(scoreA > scoreB)	return A_WINS;
-		if(scoreB > scoreA)	return B_WINS;
-		return DRAW;
-	}
-
-	private static int score(int[] cards, boolean flushable) {
-		
-
-		int last = -1;
-		boolean success = true;
-		for (int i = 0; i < cards.length; i++) {
-			if(cards[i] <= last) {
-				success = false;
-				break;
-			}
-			last = cards[i];
+	
+	static class Card implements Comparable {
+		private int value;
+		private String suit;
+		public Card(int value, String suit) {
+			this.value = value;
+			this.suit = suit;
 		}
 		
-		if(success) {
-			score = STRAIGHT;
-			if(flushable) {
-				score = STRAIGHT_FLUSH;
-				if(cards[0] == 10)
-					score = ROYAL_FLUSH;
-			}
-			return score;			
+		public int compareTo(Object o) {
+			Card b = (Card) o;
+			Integer a = new Integer(value);
+			return a.compareTo(b.value);
 		}
-		
-		int[] c = new int[13];
-		for (int i = 0; i < cards.length; i++) {
-			c[cards[i]]++;	
-		}
-		
-		int rank = -1;
-		int value = -1; //Borde användas sen för att jämföra par
-		int highest = -1;
-		int two = 0;
-		boolean three = false;
-		for (int i = 0; i < c.length; i++) {
-			if(c[i] != 0 && i > highest)
-				highest = i;
-			if(c[i] > rank) {
-				rank = c[i];
-				value = i + 1;
-			}
-			if(c[i] == 2)
-				two++;
-			if(c[i] == 3)
-				three = true;
-		}
-		
-		if(two == 1 && three)
-			return FULL_HOUSE;
-		
-		if(rank == FOUR_OF_A_KIND)
-			return FOUR_OF_A_KIND;
-		
-		if(flushable)
-			return FLUSH;
-		
-		if(three)
-			return THREE_OF_A_KIND;
-		
-		if(two == 2)
-			return TWO_PAIRS;
-		
-		if(two == 1)
-			return ONE_PAIR;
-		
-		int score = HIGH_CARD + highest;
-		
-		return score;
 	}
 }
